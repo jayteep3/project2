@@ -1,4 +1,4 @@
-<%- include("../includes/header.ejs", {title:"Account - " + result[0].account_name}); %>
+<%- include("../includes/header.ejs", {title:"Applicant - " + result[0].applicantName}); %>
 
 <head>
     <title>Applicant - <%= result[0].applicant_id %></title>
@@ -7,7 +7,7 @@
 <h1>Applicant</h1>
 <ul>
     <li>Applicant: <%= result[0].applicantName %></li>
-    <li>Phone number: <%= result[0].applicantPhonNum %></li>
+    <li>Phone number: <%= result[0].applicantPhoneNum %></li>
 </ul>
 <br/>
 <a href="/applicant/all">Back to applicants</a>

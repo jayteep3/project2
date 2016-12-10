@@ -1,0 +1,36 @@
+<%- include("../includes/header.ejs", {title:"Animals - View All"}); %>
+<head>
+    <title>Animals</title>
+</head>
+<body>
+<h1>Animals</h1>
+<a href="/animals/add">Add New animal</a> <br />
+
+<br />
+
+<table border="1">
+    <tr><th>Name</th><th>Gender</th><th>Weight</th><th>Breed</th><th>Shelter</th><th>Action</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/animal/?animal_id=<%= result[i].animal_id %>"><%= result[i].typeOfAnimal %></a></td>
+        <td><%=result[i].sex%></td>
+        <td><%=result[i].weight_in_Pounds%></td>
+        <td><%=result[i].breed_name%></td>
+        <td><%=result[i].homeShelt%></td>
+        <td>
+            <button onclick="event.preventDefault();window.location.href='/animal/edit2/?animal_id=<%= result[i].animal_id %>'">Edit</button>
+            <form action="/animal/delete/" style="display:inline;">
+                <input type="hidden" name="animal_id" id="animal_id" value="<%= result[i].animal_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+
+<br />
+
+<a href="/">Home</a><br/>
+
+<%- include("../includes/footer.ejs"); %>

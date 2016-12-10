@@ -9,7 +9,7 @@ var connection = mysql.createConnection(db.config);
 
 
 exports.getAll = function(callback) {
-    var query = 'SELECT * FROM shelter;';
+    var query = 'SELECT * FROM shelter ;';
 
     connection.query(query, function(err, result) {
         callback(err, result);

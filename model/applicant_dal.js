@@ -17,7 +17,7 @@ exports.getAll = function(callback) {
 };
 
 exports.getById = function(applicant_id, callback) {
-    var query = 'SELECT * FROM applicant WHERE applicant_id = ?';
+    var query = 'SELECT * FROM applicants WHERE applicant_id = ?';
     var queryData = [applicant_id];
 
     connection.query(query, queryData, function(err, result) {
@@ -26,7 +26,7 @@ exports.getById = function(applicant_id, callback) {
 };
 
 exports.insert = function(params, callback) {
-    var query = 'INSERT INTO applicant (applicantName) VALUES (?)';
+    var query = 'INSERT INTO applicants (applicantName) VALUES (?)';
 
     // the question marks in the sql query above will be replaced by the values of the
     // the data in queryData
@@ -39,7 +39,7 @@ exports.insert = function(params, callback) {
 
 
 exports.delete = function(account_id, callback) {
-    var query = 'DELETE FROM applicant WHERE applicant_id = ?';
+    var query = 'DELETE FROM applicants WHERE applicant_id = ?';
     var queryData = [account_id];
 
     connection.query(query, queryData, function(err, result) {
@@ -49,7 +49,7 @@ exports.delete = function(account_id, callback) {
 };
 
 exports.update = function(params, callback) {
-    var query = 'UPDATE applicant SET applicantName = ? WHERE applicant_id = ?';
+    var query = 'UPDATE applicants SET applicantName = ? WHERE applicant_id = ?';
     var queryData = [params.applicantName, params.applicant_id];
 
     connection.query(query, queryData, function(err, result) {
