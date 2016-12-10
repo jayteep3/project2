@@ -1,0 +1,12 @@
+<%- include("../includes/header.ejs", {title:"breed - View All"}); %>
+
+<h1>Update <%= breed.breedName%></h1>
+<form action="/breed/update" method="get">
+    <input type="hidden" id="breed_id" name="breed_id" value="<%= breed.breed_id %>">
+    Breed: <input type="text" id="breedName" name="breedName" value="<%= breed.breedName%>"/>
+    <br />
+    <input type="submit" />
+
+</form>
+
+<%- include("../includes/footer.ejs"); %>

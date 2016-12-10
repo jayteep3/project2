@@ -1,0 +1,26 @@
+<%- include("../includes/header.ejs", {title:"breed - View All"}); %>
+<h1>Breeds</h1>
+<a href="/breed/add">Add New breed</a> <br />
+<br />
+
+<table border="1">
+    <tr><th>Name</th><th>Action</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/breed/?breed_id=<%= result[i].breed_id %>"><%= result[i].breedName %> <%= result[i].last_name %></a></td>
+        <td>
+            <button onclick="event.preventDefault();window.location.href='/breed/edit/?breed_id=<%= result[i].breed_id %> '">Edit</button>
+            <form action="/breed/delete/">
+                <input type="hidden" name="breed_id" id="breed_id" value="<%= result[i].breed_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+
+    </tr>
+    <% } %>
+</table>
+<br/>
+
+<a href="/">Home</a><br/>
+
+<%- include("../includes/footer.ejs"); %>

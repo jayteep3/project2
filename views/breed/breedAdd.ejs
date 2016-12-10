@@ -1,0 +1,14 @@
+<%- include("../includes/header.ejs", {title:"breed - View All"}); %>
+
+<h1>Add New breed</h1>
+<form action="/breed/insert" method="get">
+    Breed Name: <input id="first_name" name="first_name" type="text" />
+    <br />
+    <br />
+    <input type="submit" />
+
+</form>
+<br/>
+<a href="/breed/all">Back to breeds</a>
+
+<%- include("../includes/footer.ejs"); %>
