@@ -9,16 +9,16 @@ var connection = mysql.createConnection(db.config);
 
 
 exports.getAll = function(callback) {
-    var query = 'SELECT * FROM breed;';
+    var query = 'SELECT * FROM applicants;';
 
     connection.query(query, function(err, result) {
         callback(err, result);
     });
 };
 
-exports.getById = function(breed_id, callback) {
-    var query = 'SELECT * FROM breed WHERE breed_id = ?';
-    var queryData = [breed_id];
+exports.getById = function(applicant_id, callback) {
+    var query = 'SELECT * FROM applicant WHERE applicant_id = ?';
+    var queryData = [applicant_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
@@ -26,11 +26,11 @@ exports.getById = function(breed_id, callback) {
 };
 
 exports.insert = function(params, callback) {
-    var query = 'INSERT INTO breed (breedName) VALUES (?)';
+    var query = 'INSERT INTO applicant (applicantName) VALUES (?)';
 
     // the question marks in the sql query above will be replaced by the values of the
     // the data in queryData
-    var queryData = [params.breedName];
+    var queryData = [params.applicantName];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
@@ -38,9 +38,9 @@ exports.insert = function(params, callback) {
 };
 
 
-exports.delete = function(breed_id, callback) {
-    var query = 'DELETE FROM breed WHERE breed_id = ?';
-    var queryData = [breed_id];
+exports.delete = function(account_id, callback) {
+    var query = 'DELETE FROM applicant WHERE applicant_id = ?';
+    var queryData = [account_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
@@ -49,20 +49,21 @@ exports.delete = function(breed_id, callback) {
 };
 
 exports.update = function(params, callback) {
-    var query = 'UPDATE breed SET breedName = ? WHERE breed_id = ?';
-    var queryData = [params.breedName, params.breed_id];
+    var query = 'UPDATE applicant SET applicantName = ? WHERE applicant_id = ?';
+    var queryData = [params.applicantName, params.applicant_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
     });
 };
 
+/*
+ exports.edit = function(account_id, callback) {
+ var query = 'CALL account_getinfo(?)';
+ var queryData = [account_id];
 
-exports.edit = function(breed_id, callback) {
-    var query = 'CALL breed SET breedName = ? WHERE breed_id = ?';
-    var queryData = [breed_id];
-
-    connection.query(query, queryData, function(err, result) {
-        callback(err, result);
-    });
-};
+ connection.query(query, queryData, function(err, result) {
+ callback(err, result);
+ });
+ };
+ */

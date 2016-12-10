@@ -1,4 +1,5 @@
-<html>
+<%- include("../includes/header.ejs", {title:"Account - " + result[0].account_name}); %>
+
 <head>
     <title>Breed - <%= result[0].breed_id %></title>
 </head>
@@ -11,4 +12,4 @@
 <a href="/breed/all">Back to breeds</a>
 </body>
 
-</html>
+<%- include("../includes/footer.ejs"); %>

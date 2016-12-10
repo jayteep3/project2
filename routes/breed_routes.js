@@ -54,13 +54,20 @@ router.get('/insert', function(req, res){
                 res.send(err);
             }
             else {
-                //poor practice, but we will handle it differently once we start using Ajax
-                res.redirect(302, '/breed/all');
+                breed_dal.insert(req.query, function(err,result){
+                    if(err){
+                        res.send(err);
+                    }
+                    else{
+                        res.redirect(302, '/breed/all');
+                    }
+                });
             }
         });
     }
 });
 
+/*
 router.get('/edit', function(req, res){
     if(req.query.breed_id == null) {
         res.send('A breed id is required');
@@ -69,11 +76,12 @@ router.get('/edit', function(req, res){
         breed_dal.edit(req.query.breed_id, function(err, result){
             console.log(result);
             //need to change this line
-            res.render('breed/breedUpdate', {breed: result[0][0], address: result[1]});
+            res.render('breed/breedUpdate', {breed: result[0]});
         });
     }
 
 });
+*/
 
 router.get('/update', function(req, res) {
     breed_dal.update(req.query, function(err, result){

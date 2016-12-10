@@ -1,0 +1,32 @@
+<%- include("../includes/header.ejs", {title:"shelter - View All"}); %>
+
+<h1>Shelters</h1>
+<a href="/shelter/add">Add New shelter</a> <br />
+<br />
+
+<table border="1">
+    <tr><th>Name</th><th>Street</th><th>City</th><th>Zip</th><th>Action</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/shelter/?shelter_id=<%= result[i].shelter_id %>"><%= result[i].shelterName %></a></td>
+        <td><%=result[i].street %></td>
+        <td><%=result[i].city %></td>
+        <td><%=result[i].zip %></td>
+
+
+        <td>
+            <button onclick="event.preventDefault();window.location.href='/shelter/edit/?shelter_id=<%= result[i].shelter_id %> '">Edit</button>
+            <form action="/shelter/delete/">
+                <input type="hidden" name="shelter_id" id="shelter_id" value="<%= result[i].shelter_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+
+    </tr>
+    <% } %>
+</table>
+<br/>
+
+<a href="/">Home</a><br/>
+
+<%- include("../includes/footer.ejs"); %>

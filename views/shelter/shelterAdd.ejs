@@ -1,0 +1,14 @@
+<%- include("../includes/header.ejs", {title:"shelter - View All"}); %>
+
+<h1>Add New shelter</h1>
+<form action="/shelter/insert" method="get">
+    shelter Name: <input id="first_name" name="first_name" type="text" />
+    <br />
+    <br />
+    <input type="submit" />
+
+</form>
+<br/>
+<a href="/shelter/all">Back to shelters</a>
+
+<%- include("../includes/footer.ejs"); %>

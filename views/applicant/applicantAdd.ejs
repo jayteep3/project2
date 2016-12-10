@@ -1,0 +1,14 @@
+<%- include("../includes/header.ejs", {title:"applicant - View All"}); %>
+
+<h1>Add New applicant</h1>
+<form action="/applicant/insert" method="get">
+    applicant Name: <input id="first_name" name="first_name" type="text" />
+    <br />
+    <br />
+    <input type="submit" />
+
+</form>
+<br/>
+<a href="/applicant/all">Back to applicants</a>
+
+<%- include("../includes/footer.ejs"); %>

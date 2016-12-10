@@ -1,0 +1,28 @@
+<%- include("../includes/header.ejs", {title:"applicant - View All"}); %>
+
+<h1>Applicants</h1>
+<a href="/applicant/add">Add New applicant</a> <br />
+<br />
+
+<table border="1">
+    <tr><th>Name</th><th>Phone</th><th>Action</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/applicant/?applicant_id=<%= result[i].applicant_id %>"><%= result[i].applicantName %></a></td>
+        <td><%=result[i].applicantPhoneNum %></td>
+        <td>
+            <button onclick="event.preventDefault();window.location.href='/applicant/edit/?applicant_id=<%= result[i].applicant_id %> '">Edit</button>
+            <form action="/applicant/delete/">
+                <input type="hidden" name="applicant_id" id="applicant_id" value="<%= result[i].applicant_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+
+    </tr>
+    <% } %>
+</table>
+<br/>
+
+<a href="/">Home</a><br/>
+
+<%- include("../includes/footer.ejs"); %>

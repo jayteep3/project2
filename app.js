@@ -10,6 +10,8 @@ var users = require('./routes/users');
 var about = require('./routes/about');
 var breed = require('./routes/breed_routes');
 var animal = require('./routes/animal_routes');
+var applicant = require('./routes/applicant_routes');
+var shelter = require('./routes/shelter_routes');
 
 var app = express();
 
@@ -30,6 +32,9 @@ app.use('/users', users);
 app.use('/about', about);
 app.use('/breed', breed);
 app.use('/animal', animal);
+app.use('/applicant', applicant);
+app.use('/shelter', shelter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
