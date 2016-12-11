@@ -28,7 +28,7 @@ router.get('/', function(req, res){
         res.send('animal_id is null');
     }
     else {
-        animals_dal.getById(req.query.animals_id, function(err,animals, animals_skill, animals_company, animals_school) {
+        animals_dal.getById(req.query.animal_id, function(err,animals){//, animals_skill, animals_company, animals_school) {
             if (err) {
                 res.send(err);
             }

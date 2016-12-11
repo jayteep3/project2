@@ -1,39 +1,29 @@
-<%- include("../includes/header.ejs", {title:"Resumes - " + resume[0].resume_name}); %>
+<%- include("../includes/header.ejs", {title:"Animal - " + animals[0].typeOfAnimal}); %>
 <head>
-    <title>Resumes - <%= resume[0].resume_name %></title>
+    <title>Animals - <%= animals[0].typeOfAnimal %></title>
 </head>
 <body>
-<h1>Resume</h1>
+<h1>Animal</h1>
 <ul>
     <br/>
-    <li>Resume Name: <%= resume[0].resume_name %></li>
-    <li>Resume ID: <%= resume[0].resume_id %></li>
-    <li>Account ID: <%= resume[0].user_account_id %></li>
-    <li>Companies:</li>
-    <ul>
-        <% for(var i=0; resume_company.length > i; i++ ) { %>
-        <li><%= resume_company[i].company_name %></li>
-        <% } %>
-    </ul>
-    <li>Skill:</li>
-    <ul>
-        <% for(var i=0; resume_skill.length > i; i++ ) { %>
-        <li> <%= resume_skill[i].skill_name %> </li>
-        <ul>
-            <li> <%= resume_skill[i].description %></li>
-        </ul>
-        <% } %>
-    </ul>
+    <li>Animal Type: <%= animals[0].typeOfAnimal %></li>
+    <li>Gender: <%= animals[0].sex %></li>
+    <li>Weight (in pounds): <%=animals[0].weight_in_Pounds%></li>
+    <li>Breed: <%=animals[0].breed_name%></li>
+    <li>Location: <%=animals[0].homeShelt%></li>
+    <!--
     <li>Education:</li>
     <ul>
-        <% for(var i=0; resume_school.length > i; i++ ) { %>
-        <li> <%= resume_school[i].school_name %> </li>
-        <% } %>
+        <for(var i=0; resume_school.length > i; i++ ) {
+        <li> resume_school[i].school_name  </li>
+        <}
     </ul>
+    -->
     <br/>
 </ul>
-<a href="/resume/all">Back to View All Resumes</a>
+<a href="/animal/all">Back to View All Animals</a>
 <br />
-<a href="/">Back to Main Page</a>
+<br />
+<a href="/">Home</a>
 </body>
 <%- include("../includes/footer.ejs"); %>

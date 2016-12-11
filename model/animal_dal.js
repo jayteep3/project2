@@ -20,17 +20,17 @@ exports.getAll = function(callback) {
 // VIEW BY ID FUNCTION(S):
 
 exports.getById = function(animals_id, callback) {
-    var query = 'SELECT * FROM animal_viewById WHERE animal_id = ?';
+    var query = 'SELECT * FROM animals WHERE animal_id = ?';
     var queryData = [animals_id];
     connection.query(query, queryData, function(err, animals) {
-        animalsSkillViewById(animals_id, function (err, animals_skill) {
-            animalsCompanyViewById(animals_id, function(err, animals_company) {
-                animalsSchoolViewById(animals_id, function(err, animals_school) {
-                    callback(err, animals, animals_skill, animals_company, animals_school);
+        //animalsSkillViewById(animals_id, function (err, animals_skill) {
+            //animalsCompanyViewById(animals_id, function(err, animals_company) {
+                //animalsSchoolViewById(animals_id, function(err, animals_school) {
+                    callback(err, animals);//,animals_skill, animals_company, animals_school);
                 });
-            });
-        });
-    });
+            //});
+        //});
+    //});
 };
 /*
 var animalsSkillViewById = function(animals_id, callback){
