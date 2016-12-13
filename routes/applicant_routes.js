@@ -45,7 +45,7 @@ router.get('/add', function(req, res){
 router.get('/insert', function(req, res){
     // simple validation
     if(req.query.applicantName == null) {
-        res.send('a applicant must be provided.');
+        res.send('an applicant must be provided.');
     }
     else {
         // passing all the query parameters (req.query) to the insert function instead of each individually
@@ -69,7 +69,7 @@ router.get('/edit', function(req, res){
         applicant_dal.edit(req.query.applicant_id, function(err, result){
             console.log(result);
             //need to change this line
-            res.render('applicant/applicantUpdate', {applicant: result[0][0], address: result[1]});
+            res.render('applicant/applicantUpdate', {applicants: result[0]});//, address: result[1]});
         });
     }
 

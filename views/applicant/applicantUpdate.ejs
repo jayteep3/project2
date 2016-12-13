@@ -1,8 +1,11 @@
 <%- include("../includes/header.ejs", {title:"Add New applicant"}); %>
 <h1>Update <%= applicants.applicantName%></h1>
 <form action="/applicant/update" method="get">
-    <input type="hidden" id="applicant_id" name="applicant_id" value="<%= applicant.applicant_id %>">
-    Applicant Name: <input type="text" id="applicantName" name="applicantName" value="<%= applicant.applicantName%>"/>
+    <input type="hidden" id="applicant_id" name="applicant_id" value="<%= applicants.applicant_id %>">
+    Name: <input type="text" id="applicantName" name="applicantName" value="<%= applicants.applicantName%>"/>
+    <br/>
+    <br/>
+    Phone Number: <input type="text" id="applicantPhoneNum" name="applicantPhoneNum" value="<%=applicants.applicantPhoneNum%>"/>
     <br />
     <input type="submit" />
 </form>

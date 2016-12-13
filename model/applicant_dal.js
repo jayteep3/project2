@@ -26,11 +26,11 @@ exports.getById = function(applicant_id, callback) {
 };
 
 exports.insert = function(params, callback) {
-    var query = 'INSERT INTO applicants (applicantName) VALUES (?)';
+    var query = 'INSERT INTO applicants (applicantName,applicantPhoneNum) VALUES (?, ?)';
 
     // the question marks in the sql query above will be replaced by the values of the
     // the data in queryData
-    var queryData = [params.applicantName];
+    var queryData = [params.applicantName, params.applicantPhoneNum];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
@@ -38,9 +38,9 @@ exports.insert = function(params, callback) {
 };
 
 
-exports.delete = function(account_id, callback) {
+exports.delete = function(applicant_id, callback) {
     var query = 'DELETE FROM applicants WHERE applicant_id = ?';
-    var queryData = [account_id];
+    var queryData = [appplicant_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
@@ -49,21 +49,20 @@ exports.delete = function(account_id, callback) {
 };
 
 exports.update = function(params, callback) {
-    var query = 'UPDATE applicants SET applicantName = ? WHERE applicant_id = ?';
-    var queryData = [params.applicantName, params.applicant_id];
+    var query = 'UPDATE applicants SET applicantName = ?, applicantPhoneNum = ? WHERE applicant_id = ?';
+    var queryData = [params.applicantName, params.applicantPhoneNum, params.applicant_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
     });
 };
 
-/*
- exports.edit = function(account_id, callback) {
- var query = 'CALL account_getinfo(?)';
- var queryData = [account_id];
+
+ exports.edit = function(applicant_id, callback) {
+ var query = 'SELECT * FROM applicants WHERE applicant_id = ?';
+ var queryData = [applicant_id];
 
  connection.query(query, queryData, function(err, result) {
  callback(err, result);
  });
  };
- */
