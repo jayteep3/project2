@@ -59,7 +59,7 @@ exports.update = function(params, callback) {
 
 
 exports.edit = function(breed_id, callback) {
-    var query = 'CALL breed SET breedName = ? WHERE breed_id = ?';
+    var query = 'SELECT * FROM breed WHERE breed_id = ?';//breedName = ? WHERE breed_id = ?';
     var queryData = [breed_id];
 
     connection.query(query, queryData, function(err, result) {

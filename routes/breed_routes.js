@@ -49,11 +49,7 @@ router.get('/insert', function(req, res){
     }
     else {
         // passing all the query parameters (req.query) to the insert function instead of each individually
-        breed_dal.insert(req.query, function(err,result) {
-            if (err) {
-                res.send(err);
-            }
-            else {
+
                 breed_dal.insert(req.query, function(err,result){
                     if(err){
                         res.send(err);
@@ -63,11 +59,9 @@ router.get('/insert', function(req, res){
                     }
                 });
             }
-        });
-    }
 });
 
-/*
+
 router.get('/edit', function(req, res){
     if(req.query.breed_id == null) {
         res.send('A breed id is required');
@@ -81,7 +75,7 @@ router.get('/edit', function(req, res){
     }
 
 });
-*/
+
 
 router.get('/update', function(req, res) {
     breed_dal.update(req.query, function(err, result){
