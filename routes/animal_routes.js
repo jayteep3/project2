@@ -3,7 +3,7 @@
  */
 var express = require('express');
 var router = express.Router();
-var animals_dal = require('../model/animal_dal');
+var animals_dal = require('../model/animal_dalLab12Example');
 var account_dal = require('../model/breed_dal');
 var skill_dal = require('../model/applicant_dal');
 var company_dal = require('../model/shelter_dal');

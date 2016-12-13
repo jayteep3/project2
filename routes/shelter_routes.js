@@ -69,7 +69,7 @@ router.get('/edit', function(req, res){
         shelter_dal.edit(req.query.shelter_id, function(err, result){
             console.log(result);
             //need to change this line
-            res.render('shelter/shelterUpdate', {shelter: result[0][0], address: result[1]});
+            res.render('shelter/shelterUpdate', {shelter: result[0]});//, address: result[1]});
         });
     }
 

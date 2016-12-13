@@ -26,11 +26,11 @@ exports.getById = function(applicant_id, callback) {
 };
 
 exports.insert = function(params, callback) {
-    var query = 'INSERT INTO applicants (applicantName,applicantPhoneNum) VALUES (?, ?)';
+    var query = 'INSERT INTO applicants (applicantName,applicantPhoneNum, applicantSSN) VALUES (?, ?, ?)';
 
     // the question marks in the sql query above will be replaced by the values of the
     // the data in queryData
-    var queryData = [params.applicantName, params.applicantPhoneNum];
+    var queryData = [params.applicantName, params.applicantPhoneNum, params.applicantSSN];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
@@ -40,7 +40,7 @@ exports.insert = function(params, callback) {
 
 exports.delete = function(applicant_id, callback) {
     var query = 'DELETE FROM applicants WHERE applicant_id = ?';
-    var queryData = [appplicant_id];
+    var queryData = [applicant_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);

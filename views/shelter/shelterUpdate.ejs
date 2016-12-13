@@ -1,0 +1,20 @@
+<%- include("../includes/header.ejs", {title:"Add New shelter"}); %>
+
+<h1>Update <%= shelter.shelterName%></h1>
+<form action="/shelter/update" method="get">
+    <input type="hidden" id="shelter_id" name="shelter_id" value="<%= shelter.shelter_id %>">
+    Name: <input type="text" id="shelterName" name="shelterName" value="<%= shelter.shelterName%>"/>
+    <br/>
+    <br/>
+    Street: <input type="text" id="street" name="street" value="<%=shelter.street%>"/>
+    <br />
+    <br/>
+    City: <input type="text" id="city" name="city" value="<%=shelter.city%>"/>
+    <br/>
+    <br/>
+    Zip:<input type="text" id="zip" name="zip" value="<%=shelter.zip%>"/>
+    <br/>
+    <br/>
+    <input type="submit" />
+</form>
+<%- include("../includes/footer.ejs"); %>
