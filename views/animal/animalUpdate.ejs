@@ -1,16 +1,22 @@
 <%- include("../includes/header.ejs", {title:"Add New animals"}); %>
 <h1>Update <%= animal.typeOfAnimal%></h1>
-<form action="/animals/update" method="get">
+<form action="/animal/update" method="get">
     <input type="hidden" id="animal_id" name="animal_id" value="<%= animal.animal_id %>">
-    Type: <input type="text" id="animalsName" name="animalsName" value="<%= animals.typeOfAnimal%>"/>
+    Type: <input type="text" id="typeOfAnimal" name="typeOfAnimal" value="<%= animal.typeOfAnimal%>"/>
     <br/>
     <br/>
     Gender: <input type="text" id="sex" name="sex" value="<%= animal.sex%>"/>
     <br/>
     <br/>
-    Gender: <input type="text" id="sex" name="sex" value="<%= animal.sex%>"/>
+    Weight(in pounds): <input type="text" id="weight_in_Pounds" name="weight_in_Pounds" value="<%= animal.weight_in_Pounds%>"/>
     <br/>
     <br />
+    Breed: <input type="text" id="breed_name" name="breed_name" value="<%= animal.breed_name%>"/>
+    <br/>
+    <br/>
+    Location: <input type="text" id="homeShelt" name="homeShelt" value="<%=animal.homeShelt%>"/>
+    <br/>
+    <br/>
     <input type="submit" />
 </form>
     <!-- Initialize the multiselect plugin: -->

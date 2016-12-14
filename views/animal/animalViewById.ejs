@@ -1,16 +1,16 @@
-<%- include("../includes/header.ejs", {title:"Animal - " + animals[0].typeOfAnimal}); %>
+<%- include("../includes/header.ejs", {title:"Animal - " + result[0].typeOfAnimal}); %>
 <head>
-    <title>Animals - <%= animals[0].typeOfAnimal %></title>
+    <title>Animals - <%= result[0].typeOfAnimal %></title>
 </head>
 <body>
 <h1>Animal</h1>
 <ul>
     <br/>
-    <li>Animal Type: <%= animals[0].typeOfAnimal %></li>
-    <li>Gender: <%= animals[0].sex %></li>
-    <li>Weight  (in pounds): <%=animals[0].weight_in_Pounds%></li>
-    <li>Breed: <%=animals[0].breed_name%></li>
-    <li>Location: <%=animals[0].homeShelt%></li>
+    <li>Animal Type: <%= result[0].typeOfAnimal %></li>
+    <li>Gender: <%= result[0].sex %></li>
+    <li>Weight  (in pounds): <%=result[0].weight_in_Pounds%></li>
+    <li>Breed: <%=result[0].breed_name%></li>
+    <li>Location: <%=result[0].homeShelt%></li>
     <!--
     <li>Education:</li>
     <ul>

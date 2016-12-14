@@ -21,11 +21,11 @@ router.get('/all', function(req, res) {
 
 // View the animals for the given id
 router.get('/', function(req, res){
-    if(req.query.animals_id == null) {
-        res.send('animals_id is null');
+    if(req.query.animal_id == null) {
+        res.send('animal_id is null');
     }
     else {
-        animals_dal.getById(req.query.animals_id, function(err,result) {
+        animals_dal.getById(req.query.animal_id, function(err,result) {
             if (err) {
                 res.send(err);
             }
@@ -44,8 +44,8 @@ router.get('/add', function(req, res){
 // insert a animals record
 router.get('/insert', function(req, res){
     // simple validation
-    if(req.query.animalsName == null) {
-        res.send('an animals must be provided.');
+    if(req.query.typeOfAnimal == null) {
+        res.send('an animal must be provided.');
     }
     else {
         // passing all the query parameters (req.query) to the insert function instead of each individually
@@ -62,14 +62,14 @@ router.get('/insert', function(req, res){
 });
 
 router.get('/edit', function(req, res){
-    if(req.query.animals_id == null) {
+    if(req.query.animal_id == null) {
         res.send('A animals id is required');
     }
     else {
-        animals_dal.edit(req.query.animals_id, function(err, result){
+        animals_dal.edit(req.query.animal_id, function(err, result){
             console.log(result);
             //need to change this line
-            res.render('animal/animalUpdate', {animalss: result[0]});//, address: result[1]});
+            res.render('animal/animalUpdate', {animal: result});//, address: result[1]});
         });
     }
 
@@ -84,11 +84,11 @@ router.get('/update', function(req, res) {
 
 // Delete a address for the given address_id
 router.get('/delete', function(req, res){
-    if(req.query.animals_id == null) {
-        res.send('animals_id is null');
+    if(req.query.animal_id == null) {
+        res.send('animal_id is null');
     }
     else {
-        animals_dal.delete(req.query.animals_id, function(err, result){
+        animals_dal.delete(req.query.animal_id, function(err, result){
             if(err) {
                 res.send(err);
             }

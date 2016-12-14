@@ -4,7 +4,7 @@
 </head>
 <body>
 <h1>Animals</h1>
-<a href="/animals/add">Add New animal</a> <br />
+<a href="/animal/add">Add New animal</a> <br />
 
 <br />
 
@@ -18,7 +18,7 @@
         <td><%=result[i].breed_name%></td>
         <td><%=result[i].homeShelt%></td>
         <td>
-            <button onclick="event.preventDefault();window.location.href='/animal/edit2/?animal_id=<%= result[i].animal_id %>'">Edit</button>
+            <button onclick="event.preventDefault();window.location.href='/animal/edit/?animal_id=<%= result[i].animal_id %>'">Edit</button>
             <form action="/animal/delete/" style="display:inline;">
                 <input type="hidden" name="animal_id" id="animal_id" value="<%= result[i].animal_id %>" />
                 <input type="submit" value="Delete"/>

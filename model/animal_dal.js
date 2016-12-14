@@ -49,7 +49,7 @@ exports.delete = function(animal_id, callback) {
 };
 
 exports.update = function(params, callback) {
-    var query = 'UPDATE animals SET typeOfAnimal = ?, sex = ?, weight_in_Pounds = ?, breed_name = ?, homeShelt = ? WHERE applicant_id = ?';
+    var query = 'UPDATE animals SET typeOfAnimal = ?, sex = ?, weight_in_Pounds = ?, breed_name = ?, homeShelt = ? WHERE animal_id = ?';
     var queryData = [params.typeOfAnimal, params.sex, params.weight_in_Pounds, params.breed_name, params.homeShelt, params.animal_id];
 
     connection.query(query, queryData, function(err, result) {
@@ -58,9 +58,9 @@ exports.update = function(params, callback) {
 };
 
 
-exports.edit = function(applicant_id, callback) {
-    var query = 'SELECT * FROM animalss WHERE animal_id = ?';
-    var queryData = [applicant_id];
+exports.edit = function(animal_id, callback) {
+    var query = 'SELECT * FROM animals WHERE animal_id = ?';
+    var queryData = [animal_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
