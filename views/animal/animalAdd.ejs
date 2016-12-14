@@ -1,42 +1,40 @@
-<%- include("../includes/header.ejs", {title:"Add New Resume"}); %>
-<head>
-    <title>Add New Resume</title>
-</head>
-<body>
-<h1>Add New Resume</h1>
-<form action="/resume/insert" method="get">
-    Resume Name: <input id="resume_name" name="resume_name" type="text" />
-    <br />
-    <br />
-    Account:<br />
-    <select id="account_id" name="account_id">
-        <% for(var i=0; account.length > i; i++ ) { %>
-        <option value="<%= account[i].account_id %>"><%= account[i].first_name + ' ' + account[i].last_name %></option>
-        <% } %>
-    </select>
-    <br />
-    Skill:<br />
-    <select id="skill_id" name="skill_id">
-        <% for(var i=0; skill.length > i; i++ ) { %>
-        <option value="<%= skill[i].skill_id %>"><%= skill[i].skill_name %></option>
-        <% } %>
-    </select>
-    <br />
-    School:<br />
-    <select id="school_id" name="school_id">
-        <% for(var i=0; skill.length > i; i++ ) { %>
-        <option value="<%= school[i].school_id %>"><%= school[i].school_name %></option>
-        <% } %>
-    </select>
-    <br />
-    Company:<br />
-    <select id="company_id" name="company_id">
-        <% for(var i=0; company.length > i; i++ ) { %>
-        <option value="<%= company[i].company_id %>"><%= company[i].company_name %></option>
-        <% } %>
-    </select>
-    <br />
+<%- include("../includes/header.ejs", {title:"Add New animal"}); %>
 
+<h1>Add New Animal</h1>
+<form action="/animal/insert" method="get">
+    Animal Type: <input id="typeOfAnimal" name="typeOfAnimal" type="text" />
+    <br />
+    <br />
+    Gender: <input id="sex" name="sex" type="text"/>
+    <br/>
+    <br/>
+    Weight (in pounds): <input id="weight_in_Pounds" name="weight_in_Pounds" type="text"/>
+    <br/>
+    <br/>
+    Breed: <input id="breed_name" name="breed_name" type="text"/>
+    <br/>
+    <br/>
+    Shelter: <input id="homeShelt" name="homeShelt" type="text"/>
+    <br/>
+    <br/>
+    /*
+    <!--
+    Breed:<br />
+    <select id="breed_id" name="breed_id">
+        < for(var i=0; breed.length > i; i++ ) { >
+        <option value="< breed[i].breed_id >">< breed[i].breed_name ></option>
+        < } >
+    </select>
+    <br />
+    Shelter:<br />
+    <select id="shelter_id" name="shelter_id">
+        for(var i=0; shelter.length > i; i++ ) { >
+        <option value="<shelter[i].shelter_id >">< shelter[i].homeShelt ></option>
+        }
+    </select>
+    -->
+    */
+    <br />
     <input type="submit" />
 
 </form>
